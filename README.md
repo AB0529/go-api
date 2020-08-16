@@ -14,7 +14,7 @@ go get -u ./...
 **Running**
 
 ```sh
-go run .\main.go .\server.go
+go run ./main.go ./server.go ./logger.go
 ```
 
 ## Usage
