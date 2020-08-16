@@ -146,7 +146,7 @@ func CreaeteScreenshot(w http.ResponseWriter, r *http.Request) {
 		LogE.Println(err)
 	}
 
-	fmt.Fprint(w, http.StatusCreated)
+	fmt.Fprint(w, config.RedirectURL+name+ext)
 }
 
 // DeleteScreenshot will delete a screenshot from the database

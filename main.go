@@ -15,10 +15,11 @@ import (
 
 // Config the configuration structure
 type Config struct {
-	Host     string `json:"host"`
-	Port     string `json:"port"`
-	APIKey   string `json:"api_key"`
-	MongoURI string `json:"mongo_uri"`
+	Host        string `json:"host"`
+	Port        string `json:"port"`
+	APIKey      string `json:"api_key"`
+	MongoURI    string `json:"mongo_uri"`
+	RedirectURL string `json:"redirect_url"`
 }
 
 // Response the response structure the API will return
