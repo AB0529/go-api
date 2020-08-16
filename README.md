@@ -40,7 +40,6 @@ Responses definations will only show the value of the `result field`*.
 **Arguments**
 
 - `"key":string` the key which will be validated
-
 - `"name":string` the name of the image
 
 **Response**
@@ -61,7 +60,6 @@ Responses definations will only show the value of the `result field`*.
 	}
 }
 ```
-
 ```json
 {
 	"status": 404,
@@ -69,7 +67,6 @@ Responses definations will only show the value of the `result field`*.
 	"result": "error: could not find screenshot with name 'Ayyy'"
 }
 ```
-
 ```json
 {
 	"status": 401,
@@ -87,22 +84,16 @@ Responses definations will only show the value of the `result field`*.
 **Arguments**
 
 - `"key":string` the key which will be validated
-
 - `"img":multipart/form-data` the image which will be saved
-
 - `"name":string` the name of the image
-
 - `"mime":string` the mime type of the image
-
 - `"timestamp":string (optional)` the tiemstamp, will be generated if not provided
 
 
 **Response**
 
 - `201 Created` on success
-
 - `409 Conflict` on duplicate names
-
 - `401 Unauthourzed` if key is invalid
 
 ```json
@@ -122,9 +113,7 @@ Responses definations will only show the value of the `result field`*.
 **Response**
 
 - `200 OK` on success
-
 - `404 Not Found` if screenshot could not be found 
-
 - `401 Unauthourzed` if key is invalid
 
 ```json
