@@ -1,13 +1,17 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // Config the configuration structure
@@ -18,18 +22,35 @@ type Config struct {
 }
 
 // Response the response structure the API will return
-type Resposne struct {
+type Response struct {
 	Status int         `json:"status"`
 	State  string      `json:"state"`
 	Result interface{} `json:"result"`
 }
 
 var config Config
+var ctx context.Context
+var cancel context.CancelFunc
+var db *mongo.Collection
 
 func main() {
 	// Load config
 	file, _ := ioutil.ReadFile("./config.json")
 	json.Unmarshal(file, &config)
+
+	// Mongo Setup
+	client, err := mongo.NewClient(options.Client().ApplyURI(config.MongoURI))
+	if err != nil {
+		panic(err)
+	}
+	ctx, cancel = context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	err = client.Connect(ctx)
+	if err != nil {
+		panic(err)
+	}
+	// The Screenshots collection
+	db = client.Database("ab-db").Collection("screenshots")
 
 	// API setup
 	router := mux.NewRouter()
