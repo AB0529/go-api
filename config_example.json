@@ -1,5 +1,6 @@
 {
 	"port": ":3000",
 	"host": "http://127.0.0.1",
-	"mongo_uri": "MONGO URI"
+	"mongo_uri": "MONGO URI",
+	"api_key": "123"
 }

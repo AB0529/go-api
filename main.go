@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -18,6 +17,7 @@ import (
 type Config struct {
 	Host     string `json:"host"`
 	Port     string `json:"port"`
+	APIKey   string `json:"api_key"`
 	MongoURI string `json:"mongo_uri"`
 }
 
@@ -44,20 +44,24 @@ func main() {
 		panic(err)
 	}
 	ctx, cancel = context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
 	err = client.Connect(ctx)
 	if err != nil {
 		panic(err)
 	}
 	// The Screenshots collection
 	db = client.Database("ab-db").Collection("screenshots")
+	LogI.Println("Mongo connection... OK")
 
 	// API setup
 	router := mux.NewRouter()
 
 	// Register Routes
 	router.HandleFunc("/", Home)
+	router.HandleFunc("/img/{name}", ImageHandler)
+	router.HandleFunc("/screenshots/{id}", GetScreenshot).Methods("GET")
+	router.HandleFunc("/screenshots/{key}/{id}", DeleteScreenshot).Methods("DELETE")
+	router.HandleFunc("/screenshots", CreaeteScreenshot).Methods("POST")
 
-	fmt.Printf("Server us running on %s%s\n", config.Host, config.Port)
+	LogI.Printf("Server running on %s%s\n", config.Host, config.Port)
 	log.Fatal(http.ListenAndServe(config.Port, router))
 }
