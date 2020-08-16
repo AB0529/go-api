@@ -77,7 +77,7 @@ func GetAllScreenshots(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get all screenshots
-	ctx, cancel = context.WithTimeout(context.Background(), 30*time.Second)
+	ctx, _ = context.WithTimeout(context.Background(), 30*time.Second)
 	// Find filter in db
 	cur, _ := db.Find(ctx, bson.M{})
 
@@ -101,8 +101,6 @@ func GetAllScreenshots(w http.ResponseWriter, r *http.Request) {
 	if err := cur.Err(); err != nil {
 		panic(err)
 	}
-
-	defer cancel()
 
 	w.Header().Set("Content-Type", "application/json")
 	SendJSON(w, Response{
@@ -201,8 +199,6 @@ func CreaeteScreenshot(w http.ResponseWriter, r *http.Request) {
 func DeleteScreenshot(w http.ResponseWriter, r *http.Request) {
 	// Validate key
 	key := s.Make(mux.Vars(r)["key"])
-
-	fmt.Println(key)
 
 	if key != config.APIKey {
 		SendJSON(w, Response{
