@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"time"
 
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -44,7 +43,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	ctx, cancel = context.WithTimeout(context.Background(), 10*time.Second)
+	ctx = context.Background()
 	err = client.Connect(ctx)
 	if err != nil {
 		panic(err)

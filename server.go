@@ -36,8 +36,7 @@ func ImageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Search DB for filename
-	result, cancel, err := FindScreenshot(strings.TrimSuffix(filename, ext))
-	defer cancel()
+	result, _, err := FindScreenshot(strings.TrimSuffix(filename, ext))
 
 	// Handle not found
 	if err != nil {
@@ -66,8 +65,7 @@ func ImageHandler(w http.ResponseWriter, r *http.Request) {
 // GetScreenshot will return info on the screenshot
 func GetScreenshot(w http.ResponseWriter, r *http.Request) {
 	id := s.Make(mux.Vars(r)["id"])
-	screenshot, cancel, err := FindScreenshot(id)
-	defer cancel()
+	screenshot, _, err := FindScreenshot(id)
 
 	// If not found, return 404
 	if err != nil {
@@ -166,8 +164,7 @@ func DeleteScreenshot(w http.ResponseWriter, r *http.Request) {
 	}
 
 	id := s.Make(mux.Vars(r)["id"])
-	res, cancel, _ := FindScreenshot(id)
-	defer cancel()
+	res, _, _ := FindScreenshot(id)
 
 	// No items found
 	if res == nil {
