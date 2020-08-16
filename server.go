@@ -77,7 +77,7 @@ func GetAllScreenshots(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get all screenshots
-	ctx, _ = context.WithTimeout(context.Background(), 30*time.Second)
+	ctx = context.Background()
 	// Find filter in db
 	cur, _ := db.Find(ctx, bson.M{})
 
