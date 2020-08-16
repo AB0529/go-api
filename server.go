@@ -62,6 +62,56 @@ func ImageHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeContent(w, r, filename, time.Now(), bytes.NewReader(screenshot.Image))
 }
 
+// GetAllScreenshots will return every screenshot in the database
+func GetAllScreenshots(w http.ResponseWriter, r *http.Request) {
+	// Key auth
+	key := s.Make(mux.Vars(r)["key"])
+
+	if key != config.APIKey {
+		SendJSON(w, Response{
+			Status: 401,
+			State:  "fail",
+			Result: "error: unauthorized key",
+		})
+		return
+	}
+
+	// Get all screenshots
+	ctx, cancel = context.WithTimeout(context.Background(), 30*time.Second)
+	// Find filter in db
+	cur, _ := db.Find(ctx, bson.M{})
+
+	// Item could not be found
+	if cur.RemainingBatchLength() <= 0 {
+		LogW.Println("No items found in database")
+		return
+	}
+
+	var items []bson.M
+
+	for cur.Next(ctx) {
+		var res bson.M
+		cur.Decode(&res)
+
+		if res != nil {
+			items = append(items, res)
+		}
+	}
+
+	if err := cur.Err(); err != nil {
+		panic(err)
+	}
+
+	defer cancel()
+
+	w.Header().Set("Content-Type", "application/json")
+	SendJSON(w, Response{
+		Status: 200,
+		State:  "ok",
+		Result: items,
+	})
+}
+
 // GetScreenshot will return info on the screenshot
 func GetScreenshot(w http.ResponseWriter, r *http.Request) {
 	id := s.Make(mux.Vars(r)["id"])

@@ -29,8 +29,6 @@ All responses will have the same form.
 }
 ```
 
-Responses definations will only show the value of the `result field`*.
-
 ### Retriving a Screenshot
 
 **Definition**
@@ -65,6 +63,27 @@ Responses definations will only show the value of the `result field`*.
 	"state": "fail",
 	"result": "error: could not find screenshot"
 }
+```
+
+### Retreiving all Screenshots
+
+**Definition**
+
+`GET /screenshots/all/{key}`
+
+**Arguments**
+
+- `"key":string` the api key
+
+**Response**
+- `200 OK` on success
+- `401 Unauthourzed` if key is invalid
+
+```json
+{
+	"status": 200,
+	"state": "ok",
+	"result": [...] 
 ```
 
 ### Creating a Screenshot

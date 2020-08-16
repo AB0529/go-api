@@ -58,6 +58,7 @@ func main() {
 	// Register Routes
 	router.HandleFunc("/", Home)
 	router.HandleFunc("/img/{name}", ImageHandler)
+	router.HandleFunc("/screenshots/all/{key}", GetAllScreenshots).Methods("GET")
 	router.HandleFunc("/screenshots/{id}", GetScreenshot).Methods("GET")
 	router.HandleFunc("/screenshots/{key}/{id}", DeleteScreenshot).Methods("DELETE")
 	router.HandleFunc("/screenshots", CreaeteScreenshot).Methods("POST")
