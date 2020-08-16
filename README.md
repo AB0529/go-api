@@ -83,7 +83,7 @@ All responses will have the same form.
 {
 	"status": 200,
 	"state": "ok",
-	"result": [ Screenshots here! ] 
+	"result": [ ... ] 
 ```
 
 ### Creating a Screenshot
