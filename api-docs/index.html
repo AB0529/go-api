@@ -1,0 +1,841 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AB API | API Reference</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <link rel="stylesheet" href="stylesheets/foundation.min.css" />
+    <link rel="stylesheet" href="stylesheets/spectacle.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- <script src="javascripts/foundation.js"></script> -->
+    <script src="javascripts/spectacle.min.js"></script>
+</head>
+
+<body id="spectacle">
+    <style>
+
+    </style>
+
+
+    <div id="page" class="drawer-layout drawer-slide-right-large">
+        <div id="sidebar">
+            <button class="close-button" aria-label="Close menu" type="button" data-drawer-close>
+          <span aria-hidden="true">×</span>
+        </button>
+            <div id="logo">
+                <img src="images/icon.png" title="AB API" /> </div>
+            <nav id="nav" role="navigation">
+                <h5>Topics</h5>
+                <a href="#introduction">Introduction</a>
+                <h5>Paths</h5>
+                <!-- <section>
+                <a href="#path--screenshots--name-">/screenshots/{name}</a>
+                <ul> -->
+                <!-- <li> -->
+                <a href="#operation--screenshots--name--get"> retrieve a screenshot </a>
+                <!-- </li> -->
+                <!-- </ul>
+              </section> -->
+                <!-- <section>
+                <a href="#path--screenshots-all--key-">/screenshots/all/{key}</a>
+                <ul> -->
+                <!-- <li> -->
+                <a href="#operation--screenshots-all--key--get"> retrieves all screenshot </a>
+                <!-- </li> -->
+                <!-- </ul>
+              </section> -->
+                <!-- <section>
+                <a href="#path--screenshots">/screenshots</a>
+                <ul> -->
+                <!-- <li> -->
+                <a href="#operation--screenshots-post"> creates a new screenshot </a>
+                <!-- </li> -->
+                <!-- </ul>
+              </section> -->
+                <!-- <section>
+                <a href="#path--screnshots--key---name-">/screnshots/{key}/{name}</a>
+                <ul> -->
+                <!-- <li> -->
+                <a href="#operation--screnshots--key---name--delete"> deletes a screenshot </a>
+                <!-- </li> -->
+                <!-- </ul>
+              </section> -->
+                <h5>Schema Definitions</h5>
+                <a href="#definition-ScreenshotDeleted200"> ScreenshotDeleted200 </a>
+                <a href="#definition-Screenshot404"> Screenshot404 </a>
+                <a href="#definition-ScreenshotItem"> ScreenshotItem </a>
+            </nav>
+        </div>
+        <div id="docs" class="row collapse expanded drawer" data-drawer>
+            <button class="floating-menu-icon" type="button" data-drawer-slide="right">
+          <span class="hamburger"></span>
+        </button>
+            <div class="example-box doc-content"></div>
+            <article>
+                <h1 class="doc-title">AB API
+                    <span>API Reference</span>
+                </h1>
+                <div id="introduction" data-traverse-target="introduction">
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <p>This is a simple API with various features I want. Built for personal use.</p>
+                        </div>
+                        <div class="doc-examples">
+                            <section>
+                                <h5>Contact:
+                                    <a href="mailto:anishb0529@gmail.com">anishb0529@gmail.com</a>
+                                </h5>
+                                <h5>Version:
+                                    <span>1.0.0</span>
+                                </h5>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <h1>Paths</h1>
+                <span id="path--screenshots--name-"></span>
+                <div id="operation--screenshots--name--get" class="operation panel" data-traverse-target="operation--screenshots--name--get">
+                    <!-- <section class="operation-tags row"> -->
+                    <!-- <div class="doc-copy"> -->
+                    <div class="operation-tags">
+                        <a class="label" href="#tag-screenshots">screenshots</a>
+                        <!---->
+                    </div>
+                    <!-- </div> -->
+                    <!-- </section> -->
+                    <h2 class="operation-title">
+                        <span class="operation-summary">retrieve a screenshot</span>
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-path">
+                                <span class="operation-method">GET</span>
+                                <span class="operation-path">/screenshots/{name}</span>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-description">
+                                <p>By passing in the name of the screenshot, you can search for specific screenshots by name</p>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-request-params">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">name:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <span class="json-property-required"></span>
+                                        <div class="prop-subtitle"> in path </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the name of the screenshot</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples"></div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-responses">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">200 OK</div>
+                                        <div class="prop-ref"></div>
+                                        <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>search results matching criteria</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-inner">
+                                    <div class="prop-name">type</div>
+                                    <div class="prop-value">
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">404 Not Found</div>
+                                        <div class="prop-ref">
+                                            <span class="">
+                          <a class="json-schema-ref" href="#/definitions/Screenshot404">Screenshot404</a>
+                        </span>
+                                        </div>
+                                        <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>screenshot not found</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <h5>Response Content-Types:
+                                <span>application/json</span>
+                            </h5>
+                            <section>
+                                <h5>Response Example
+                                    <span>(200 OK)</span>
+                                </h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;ok&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: {
+    <span class="hljs-attr">&quot;img&quot;</span>: <span class="hljs-string">&quot;Binary Image Here&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;cool-cat-600&quot;</span>,
+    <span class="hljs-attr">&quot;mime&quot;</span>: <span class="hljs-string">&quot;image/png&quot;</span>,
+    <span class="hljs-attr">&quot;timestamp&quot;</span>: <span class="hljs-string">&quot;2009-11-10 23:00:00 +0000 UTC m=+0.000000000&quot;</span>
+  }
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                            <section>
+                                <h5>Response Example
+                                    <span>(404 Not Found)</span>
+                                </h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">404</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;fail&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;error: could not find screenshot&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <span id="path--screenshots-all--key-"></span>
+                <div id="operation--screenshots-all--key--get" class="operation panel" data-traverse-target="operation--screenshots-all--key--get">
+                    <!-- <section class="operation-tags row"> -->
+                    <!-- <div class="doc-copy"> -->
+                    <div class="operation-tags">
+                        <a class="label" href="#tag-screenshots">screenshots</a>
+                        <!---->
+                    </div>
+                    <!-- </div> -->
+                    <!-- </section> -->
+                    <h2 class="operation-title">
+                        <span class="operation-summary">retrieves all screenshot</span>
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-path">
+                                <span class="operation-method">GET</span>
+                                <span class="operation-path">/screenshots/all/{key}</span>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-description">
+                                <p>Gives an array of all screenshots in the database</p>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-request-params">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">key:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <span class="json-property-required"></span>
+                                        <div class="prop-subtitle"> in path </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the api key</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples"></div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-responses">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">200 OK</div>
+                                        <div class="prop-ref"></div>
+                                        <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>all screenshots</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-inner">
+                                    <div class="prop-name">type</div>
+                                    <div class="prop-value">
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">404 Not Found</div>
+                                        <div class="prop-ref">
+                                            <span class="">
+                          <a class="json-schema-ref" href="#/definitions/Screenshot404">Screenshot404</a>
+                        </span>
+                                        </div>
+                                        <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>screenshot not found</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <h5>Response Content-Types:
+                                <span>application/json</span>
+                            </h5>
+                            <section>
+                                <h5>Response Example
+                                    <span>(200 OK)</span>
+                                </h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;ok&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;img&quot;</span>: <span class="hljs-string">&quot;Binary Image Here&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;cool-cat-600&quot;</span>,
+      <span class="hljs-attr">&quot;mime&quot;</span>: <span class="hljs-string">&quot;image/png&quot;</span>,
+      <span class="hljs-attr">&quot;timestamp&quot;</span>: <span class="hljs-string">&quot;2009-11-10 23:00:00 +0000 UTC m=+0.000000000&quot;</span>
+    }
+  ]
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                            <section>
+                                <h5>Response Example
+                                    <span>(404 Not Found)</span>
+                                </h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">404</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;fail&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;error: could not find screenshot&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <span id="path--screenshots"></span>
+                <div id="operation--screenshots-post" class="operation panel" data-traverse-target="operation--screenshots-post">
+                    <!-- <section class="operation-tags row"> -->
+                    <!-- <div class="doc-copy"> -->
+                    <div class="operation-tags">
+                        <a class="label" href="#tag-screenshots">screenshots</a>
+                        <!---->
+                    </div>
+                    <!-- </div> -->
+                    <!-- </section> -->
+                    <h2 class="operation-title">
+                        <span class="operation-summary">creates a new screenshot</span>
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-path">
+                                <span class="operation-method">POST</span>
+                                <span class="operation-path">/screenshots</span>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-description">
+                                <p>adds a new screenshot to the database</p>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-request-params">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">key:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <div class="prop-subtitle"> in formData </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the api key</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">img:
+                                            <span class="prop-type">
+                          <span class="json-property-type">file</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <div class="prop-subtitle"> in formData </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the image to send</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">name:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <div class="prop-subtitle"> in formData </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the name of the screenshot</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">mime:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <div class="prop-subtitle"> in formData </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the mime type of the image</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">timestamp:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <div class="prop-subtitle"> in formData </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the timestamp, will be created if not provided</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples"></div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-responses">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">201 Created</div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>screenshot has been created</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">401 Unauthorized</div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>unauthorized key</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <h5>Response Content-Types:
+                                <span>application/text</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <span id="path--screnshots--key---name-"></span>
+                <div id="operation--screnshots--key---name--delete" class="operation panel" data-traverse-target="operation--screnshots--key---name--delete">
+                    <!-- <section class="operation-tags row"> -->
+                    <!-- <div class="doc-copy"> -->
+                    <div class="operation-tags">
+                        <a class="label" href="#tag-screenshots">screenshots</a>
+                        <!---->
+                    </div>
+                    <!-- </div> -->
+                    <!-- </section> -->
+                    <h2 class="operation-title">
+                        <span class="operation-summary">deletes a screenshot</span>
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-path">
+                                <span class="operation-method">DELETE</span>
+                                <span class="operation-path">/screnshots/{key}/{name}</span>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-operation-description">
+                                <p>Deletes a screenshot with the given name</p>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-request-params">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">key:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <span class="json-property-required"></span>
+                                        <div class="prop-subtitle"> in path </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the api key</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">name:
+                                            <span class="prop-type">
+                          <span class="json-property-type">string</span>
+                                            <span class="json-property-range" title="Value limits"></span>
+                                            </span>
+                                        </div>
+                                        <span class="json-property-required"></span>
+                                        <div class="prop-subtitle"> in path </div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>the name of the screenshot</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples"></div>
+                    </div>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="swagger-responses">
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">200 OK</div>
+                                        <div class="prop-ref">
+                                            <span class="">
+                          <a class="json-schema-ref" href="#/definitions/ScreenshotDeleted200">ScreenshotDeleted200</a>
+                        </span>
+                                        </div>
+                                        <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>screenshot is deleted</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">401 Unauthorized</div>
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>unauthorized key</p>
+                                    </div>
+                                </div>
+                                <div class="prop-row prop-group">
+                                    <div class="prop-name">
+                                        <div class="prop-title">404 Not Found</div>
+                                        <div class="prop-ref">
+                                            <span class="">
+                          <a class="json-schema-ref" href="#/definitions/Screenshot404">Screenshot404</a>
+                        </span>
+                                        </div>
+                                        <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                                    </div>
+                                    <div class="prop-value">
+                                        <p>screenshot not found</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <h5>Response Content-Types:
+                                <span>application/json</span>
+                            </h5>
+                            <section>
+                                <h5>Response Example
+                                    <span>(200 OK)</span>
+                                </h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;ok&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;Deleted screenshot eccentric-camel-510&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                            <section>
+                                <h5>Response Example
+                                    <span>(404 Not Found)</span>
+                                </h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">404</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;fail&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;error: could not find screenshot&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <h1>Schema Definitions</h1>
+                <div id="definition-ScreenshotDeleted200" class="definition panel" data-traverse-target="definition-ScreenshotDeleted200">
+                    <h2 class="panel-title">
+                        <a name="/definitions/ScreenshotDeleted200"></a>ScreenshotDeleted200: object
+                        <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="json-schema-properties">
+                                <dl>
+                                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="result">
+                      <span class="json-property-name">result:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                </dl>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <section>
+                                <h5>Example</h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;ok&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;Deleted screenshot eccentric-camel-510&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div id="definition-Screenshot404" class="definition panel" data-traverse-target="definition-Screenshot404">
+                    <h2 class="panel-title">
+                        <a name="/definitions/Screenshot404"></a>Screenshot404: object
+                        <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="json-schema-properties">
+                                <dl>
+                                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="result">
+                      <span class="json-property-name">result:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                </dl>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <section>
+                                <h5>Example</h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">404</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;fail&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;error: could not find screenshot&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div id="definition-ScreenshotItem" class="definition panel" data-traverse-target="definition-ScreenshotItem">
+                    <h2 class="panel-title">
+                        <a name="/definitions/ScreenshotItem"></a>ScreenshotItem: object
+                        <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+                    </h2>
+                    <div class="doc-row">
+                        <div class="doc-copy">
+                            <section class="json-schema-properties">
+                                <dl>
+                                    <dt data-property-name="img">
+                      <span class="json-property-name">img:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="name">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="mime">
+                      <span class="json-property-name">mime:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                    <dt data-property-name="timestamp">
+                      <span class="json-property-name">timestamp:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                                </dl>
+                            </section>
+                        </div>
+                        <div class="doc-examples">
+                            <section>
+                                <h5>Example</h5>
+                                <!-- <div class="hljs"> -->
+                                <html>
+
+                                <head></head>
+
+                                <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;img&quot;</span>: <span class="hljs-string">&quot;Binary Image Here&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;cool-cat-600&quot;</span>,
+  <span class="hljs-attr">&quot;mime&quot;</span>: <span class="hljs-string">&quot;image/png&quot;</span>,
+  <span class="hljs-attr">&quot;timestamp&quot;</span>: <span class="hljs-string">&quot;2009-11-10 23:00:00 +0000 UTC m=+0.000000000&quot;</span>
+}
+</code></pre> </body>
+
+                                </html>
+                                <!-- </div> -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="doc-row no-margin">
+                    <div class="doc-copy doc-separator">
+                        <a class="powered-by" href="https://sourcey.com/spectacle">Documentation by
+                <span>Spectacle</span>
+              </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
+
+</html>

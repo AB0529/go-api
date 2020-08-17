@@ -19,10 +19,10 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-// Home the home route of the API
-func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Home")
-}
+// // Home the home route of the API
+// func Home(w http.ResponseWriter, r *http.Request) {
+// 	http.ServeFile(w, r, "./api-docs/index.html")
+// }
 
 // ImageHandler shows the image from the database
 func ImageHandler(w http.ResponseWriter, r *http.Request) {

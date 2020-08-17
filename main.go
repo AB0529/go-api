@@ -44,6 +44,11 @@ func main() {
 		panic(err)
 	}
 	ctx = context.Background()
+
+	if ctx.Err() != nil {
+		LogE.Println(ctx.Err())
+	}
+
 	err = client.Connect(ctx)
 	if err != nil {
 		panic(err)
@@ -54,9 +59,11 @@ func main() {
 
 	// API setup
 	router := mux.NewRouter()
+	fh := http.FileServer(http.Dir("./api-docs"))
 
 	// Register Routes
-	router.HandleFunc("/", Home)
+	router.PathPrefix("/").Handler(fh)
+	http.Handle("/", router)
 	router.HandleFunc("/img/{name}", ImageHandler)
 	router.HandleFunc("/screenshots/all/{key}", GetAllScreenshots).Methods("GET")
 	router.HandleFunc("/screenshots/{id}", GetScreenshot).Methods("GET")
