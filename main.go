@@ -59,16 +59,14 @@ func main() {
 
 	// API setup
 	router := mux.NewRouter()
-	fh := http.FileServer(http.Dir("./api-docs"))
 
 	// Register Routes
-	router.PathPrefix("/").Handler(fh)
-	http.Handle("/", router)
 	router.HandleFunc("/img/{name}", ImageHandler)
 	router.HandleFunc("/screenshots/all/{key}", GetAllScreenshots).Methods("GET")
 	router.HandleFunc("/screenshots/{id}", GetScreenshot).Methods("GET")
 	router.HandleFunc("/screenshots/{key}/{id}", DeleteScreenshot).Methods("DELETE")
 	router.HandleFunc("/screenshots", CreaeteScreenshot).Methods("POST")
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./api-docs")))
 
 	LogI.Printf("Server running on %s%s\n", config.Host, config.Port)
 	log.Fatal(http.ListenAndServe(config.Port, router))
