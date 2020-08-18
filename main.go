@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -29,8 +30,6 @@ type Response struct {
 }
 
 var config Config
-var ctx context.Context
-var cancel context.CancelFunc
 var db *mongo.Collection
 
 func main() {
@@ -43,7 +42,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	ctx = context.Background()
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
 
 	if ctx.Err() != nil {
 		LogE.Println(ctx.Err())

@@ -77,7 +77,8 @@ func GetAllScreenshots(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get all screenshots
-	ctx = context.Background()
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
 	// Find filter in db
 	cur, _ := db.Find(ctx, bson.M{})
 
@@ -181,6 +182,8 @@ func CreaeteScreenshot(w http.ResponseWriter, r *http.Request) {
 	LogI.Println(fmt.Sprintf("`%s` : %.2fKB", name+ext, float32(header.Size/1000)))
 
 	// Save file data to Mongo
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
 	_, err = db.InsertOne(ctx, bson.M{
 		"image":     screenshot,
 		"name":      name,
@@ -189,7 +192,7 @@ func CreaeteScreenshot(w http.ResponseWriter, r *http.Request) {
 	})
 
 	if err != nil {
-		LogE.Println(err)
+		LogE.Println("error: create screeshot: ", err)
 	}
 
 	fmt.Fprint(w, config.RedirectURL+name+ext)
@@ -224,6 +227,8 @@ func DeleteScreenshot(w http.ResponseWriter, r *http.Request) {
 
 	// Delete screenshot
 	if res["name"] == id {
+		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		defer cancel()
 		if _, err := db.DeleteOne(ctx, bson.M{"name": id}); err != nil {
 			LogE.Println(err)
 		}
@@ -256,7 +261,8 @@ func SendJSON(w http.ResponseWriter, resp Response) (bool, error) {
 
 // FindScreenshot will find a screenshot in the database given a filename
 func FindScreenshot(filename string) (primitive.M, context.CancelFunc, error) {
-	ctx, cancel = context.WithTimeout(context.Background(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
 	// Find filter in db
 	cur, _ := db.Find(ctx, bson.M{"name": filename})
 
