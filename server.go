@@ -40,7 +40,7 @@ func ImageHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Handle not found
 	if err != nil {
-		fmt.Println(err)
+		LogE.Println("(FindScreenshot) error: ", err)
 		fmt.Fprint(w, "404 not found")
 		return
 	}
@@ -51,7 +51,7 @@ func ImageHandler(w http.ResponseWriter, r *http.Request) {
 	bson.Unmarshal(bsonBytes, &screenshot)
 
 	if err != nil {
-		LogE.Println(err)
+		LogE.Println("(bsonMarshal) error: ", err)
 		return
 	}
 
